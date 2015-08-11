@@ -60,6 +60,10 @@
 #>
 	
 	Param(
+        [ValidateScript({ 
+            if (Test-Path -Path $_ -PathType Leaf) { $true }
+            elseif (Test-Path -Path (Split-Path $_) -PathType Container) { $true }
+        })]
         [String] $Database=$null,
         [Switch] $Open
     )
@@ -71,17 +75,11 @@
         }
         else
         {
-            $Database = Join-path -Path $PWD.Path -ChildPath  "database.db"
+            $Database = Join-path -Path $PWD -ChildPath "database.db"
         }
     }
-    else
-    {
-        if (!(Test-Path -Path $Database -PathType Leaf)) {
-            Throw "you must specify a valid database path"
-        }
-    }
-	
-	$connStr = "Data Source = $database"
+
+	$connStr = "Data Source = $Database"
 	$conn = New-Object -TypeName System.Data.SQLite.SQLiteConnection -ArgumentList $connStr
 	if ($Open) { $conn.Open() }
 	Return $conn
