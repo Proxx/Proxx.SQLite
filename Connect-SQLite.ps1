@@ -58,9 +58,28 @@
             .LINK
             http://www.proxx.nl/Wiki/Connect-SQLite
 #>
-	Param([String]$Database=$(Join-path -Path $MyInvocation.PSScriptRoot -ChildPath "database.db"),[Switch] $Open)
 	
-	if ($Database -eq "\database.db") { $Database = Join-path -Path $PWD.Path -ChildPath  "database.db" }
+	Param(
+        [String] $Database=$null,
+        [Switch] $Open
+    )
+
+	if (!$Database)
+    {
+        if ($MyInvocation.PSScriptRoot) {
+            $Database = Join-path -Path $MyInvocation.PSScriptRoot -ChildPath "database.db"
+        }
+        else
+        {
+            $Database = Join-path -Path $PWD.Path -ChildPath  "database.db"
+        }
+    }
+    else
+    {
+        if (!(Test-Path -Path $Database -PathType Leaf)) {
+            Throw "you must specify a valid database path"
+        }
+    }
 	
 	$connStr = "Data Source = $database"
 	$conn = New-Object -TypeName System.Data.SQLite.SQLiteConnection -ArgumentList $connStr
