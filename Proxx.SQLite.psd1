@@ -12,7 +12,7 @@
 RootModule = './Proxx.SQLite.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.9.5'
+ModuleVersion = '0.9.6'
 
 # ID used to uniquely identify this module
 GUID = '85d43a6e-3c51-4cdc-be4f-7d959a2952d8'
