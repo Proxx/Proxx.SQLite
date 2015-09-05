@@ -1,0 +1,28 @@
+#Unstable image has WMF 5.0 installed (contains: PowershellGet)
+os: unstable
+
+environment:
+  access_token:
+    secure: ZF9ZuXlw9zU02SengmWCeMkll8PcmCr0rG5NpF6967RrbGAztNZgqraVwTJ+gdT1
+
+branches:
+  only:
+    - master
+
+install:
+  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Install.ps1'))
+
+build_script:
+  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Build.ps1'))
+  
+test_script:
+  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Tests.ps1'))
+
+  
+deploy: off
+  
+on_success:
+  - ps: Publish-Module -Name $($ENV:APPVEYOR_PROJECT_NAME) -Repository PSGallery -NuGetApiKey $($env:access_token) -Confirm:$false
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))  

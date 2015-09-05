@@ -1,0 +1,4 @@
+src/obj/Debug/
+src/bin/Debug/
+src/.vs/
+*.pdb
