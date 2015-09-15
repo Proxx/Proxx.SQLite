@@ -289,21 +289,19 @@ namespace Proxx.SQLite
     public class OutSQLiteTable : PSCmdlet
     {
         #region OutSQLite variables
-        private SQLiteConnection connection;
+        
         private SQLiteCommand command;
-        private PSObject[] inputobject;
+        private string[] Exclude;
+        private bool first;
+        private bool HasError;
         private StringBuilder insertnames;
         private StringBuilder insertparam;
-        private StringBuilder updateparam;
-        private string name;
-        private string update;
-        private string replace;
-        private string x;
-        private bool first;
-        private string query;
         private ArrayList param;
         private string paramname;
-        private bool HasError;
+        private StringBuilder updateparam;
+        private string query;
+        private string x;
+
         #endregion
 
         #region OutSQLite Parameters
