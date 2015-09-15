@@ -467,6 +467,7 @@ namespace Proxx.SQLite
         private ArrayList param;
         private string x;
         private SwitchParameter passthru;
+        private string[] Exclude;
         #endregion
 
         #region NewSQLiteTable Parameters
