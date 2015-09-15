@@ -420,7 +420,7 @@ namespace Proxx.SQLite
                 {
                     if (Replace != null) { query = "INSERT OR REPLACE INTO '" + name + "' (" + insertnames.ToString() + ") VALUES (" + insertparam.ToString() + ");"; }
                     else { query = "INSERT OR IGNORE INTO '" + name + "' (" + insertnames.ToString() + ") VALUES (" + insertparam.ToString() + ");"; }
-                    if (Update != null) { query += "UPDATE " + insertnames + " SET " + updateparam.ToString() + " Where " + update + "=@__" + update.Replace(".", "") + ";"; }
+                    if (Update != null) { query += "UPDATE '" + name + "' SET " + updateparam.ToString() + " Where " + update + "=@__" + update.Replace(".", "") + ";"; }
                     command.CommandText = query;
                     WriteVerbose(query);
                     command.Prepare();
