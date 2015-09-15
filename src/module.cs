@@ -366,6 +366,7 @@ namespace Proxx.SQLite
             {
                 command.Transaction = connection.BeginTransaction();
             }
+            Exclude = new string[] { "RowError", "RowState", "Table", "ItemArray", "HasErrors" };
             insertnames = new StringBuilder();
             insertparam = new StringBuilder();
             updateparam = new StringBuilder();
@@ -375,11 +376,11 @@ namespace Proxx.SQLite
         }
         protected override void ProcessRecord()
         {
-
             foreach (PSObject item in inputobject)
             {
                 foreach (PSPropertyInfo property in item.Properties)
                 {
+                    if (Exclude.Contains(property.Name.ToString())) { continue; }
                     paramname = "@__" + property.Name.ToString().Replace(".", "");
                     if (first)
                     {
