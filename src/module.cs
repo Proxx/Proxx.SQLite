@@ -536,6 +536,7 @@ namespace Proxx.SQLite
             {
                 ThrowTerminatingError(new ErrorRecord(new Exception("Connection is not open"), "", ErrorCategory.OpenError, ""));
             }
+            Exclude = new string[] { "RowError", "RowState", "Table", "ItemArray", "HasErrors" };
         }
 
         protected override void ProcessRecord()
@@ -544,6 +545,7 @@ namespace Proxx.SQLite
             {
                 foreach (PSPropertyInfo property in row.Properties)
                 {
+                    if (Exclude.Contains(property.Name.ToString())) { continue; }
                     if (first)
                     {
                         if (param.Contains(property.Name.ToString()))
