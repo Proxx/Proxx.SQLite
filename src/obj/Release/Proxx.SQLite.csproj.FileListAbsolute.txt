@@ -1,4 +1,0 @@
-D:\PowerShell\Module\Proxx.SQLite\src\Proxx.SQLite\obj\Release\Proxx.SQLite.dll
-D:\PowerShell\Module\Proxx.SQLite\src\Proxx.SQLite\obj\Release\Proxx.SQLite.pdb
-D:\PowerShell\Module\Proxx.SQLite\Proxx.SQLite.dll
-D:\PowerShell\Module\Proxx.SQLite\Proxx.SQLite.pdb
