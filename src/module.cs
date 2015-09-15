@@ -398,7 +398,7 @@ namespace Proxx.SQLite
                         x = ",";
                     }
                     object value = "";
-                    if (property.Value == null || string.IsNullOrWhiteSpace(property.Value.ToString())) { Console.WriteLine("null"); value = DBNull.Value; }
+                    if (property.Value == null || string.IsNullOrWhiteSpace(property.Value.ToString())) { value = DBNull.Value; }
                     else
                     {
                         switch (property.TypeNameOfValue)
