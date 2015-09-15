@@ -313,6 +313,8 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        private SQLiteConnection connection;
+
         [Parameter(
             Mandatory = false,
             ValueFromPipeline = true
@@ -322,6 +324,8 @@ namespace Proxx.SQLite
             get { return inputobject; }
             set { inputobject = value; }
         }
+        private PSObject[] inputobject;
+
         [Parameter(
             Mandatory = false
         )]
@@ -330,6 +334,8 @@ namespace Proxx.SQLite
             get { return name; }
             set { name = value; }
         }
+        private string name;
+
         [Parameter(
             Mandatory = false
         )]
@@ -338,6 +344,8 @@ namespace Proxx.SQLite
             get { return update; }
             set { update = value; }
         }
+        private string update;
+
         [Parameter(
             Mandatory = false
         )]
@@ -346,6 +354,7 @@ namespace Proxx.SQLite
             get { return replace; }
             set { replace = value; }
         }
+        private string replace;
         #endregion
 
         protected override void BeginProcessing()
