@@ -194,7 +194,8 @@ namespace Proxx.SQLite
         }
         [Parameter(
             Mandatory = false,
-            HelpMessage = "SQLite select Query"
+            HelpMessage = "SQLite select Query",
+            ValueFromPipeline = true
         )]
         public string Query
         {
