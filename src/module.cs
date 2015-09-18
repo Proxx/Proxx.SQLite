@@ -290,7 +290,7 @@ namespace Proxx.SQLite
     public class OutSQLiteTable : PSCmdlet
     {
         #region OutSQLite variables
-        
+
         private SQLiteCommand command;
         private string[] Exclude;
         private bool first;
@@ -734,5 +734,6 @@ namespace Proxx.SQLite
             transaction.Rollback();
         }
     }
+
 }
 
