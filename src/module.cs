@@ -267,7 +267,10 @@ namespace Proxx.SQLite
         }
         [Parameter(
             Mandatory = false,
-            HelpMessage = "SQLite Query"
+            HelpMessage = "SQLite Query",
+            ValueFromPipeline = true,
+            ValueFromPipelineByPropertyName = true
+        
         )]
         public string[] Query
         {
