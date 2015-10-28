@@ -560,24 +560,30 @@ namespace Proxx.SQLite
                         columns.Append(x + " `" + property.Name.ToString() + "`");
                         x = ",";
                         string type = "";
-                        if (text) { type = "TEXT"; }
-                        switch (property.TypeNameOfValue)
+                        if (text)
                         {
-                            case "System.Boolean": type = "BOOLEAN"; break;
-                            case "System.Byte": type = "BLOB"; break;
-                            case "System.Byte[]": type = "BLOB"; break;
-                            case "System.DateTime": type = "DATETIME"; break;
-                            case "System.Decimal": type = "DECIMAL"; break;
-                            case "System.Double": type = "INT"; break;
-                            case "System.Guid": type = "BLOB"; break;
-                            case "System.Int16": type = "INT"; break;
-                            case "System.Int32": type = "INT"; break;
-                            case "System.Int64": type = "INT"; break;
-                            case "System.Single": type = "NUMERIC"; break;
-                            case "System.Uint16": type = "INT"; break;
-                            case "System.Uint32": type = "BIGINT"; break;
-                            case "System.Uint64": type = "BIGINT"; break;
-                            default: type = "TEXT"; break;
+                            type = "TEXT";
+                        }
+                        else
+                        {
+                            switch (property.TypeNameOfValue)
+                            {
+                                case "System.Boolean": type = "BOOLEAN"; break;
+                                case "System.Byte": type = "BLOB"; break;
+                                case "System.Byte[]": type = "BLOB"; break;
+                                case "System.DateTime": type = "DATETIME"; break;
+                                case "System.Decimal": type = "DECIMAL"; break;
+                                case "System.Double": type = "INT"; break;
+                                case "System.Guid": type = "BLOB"; break;
+                                case "System.Int16": type = "INT"; break;
+                                case "System.Int32": type = "INT"; break;
+                                case "System.Int64": type = "INT"; break;
+                                case "System.Single": type = "NUMERIC"; break;
+                                case "System.Uint16": type = "INT"; break;
+                                case "System.Uint32": type = "BIGINT"; break;
+                                case "System.Uint64": type = "BIGINT"; break;
+                                default: type = "TEXT"; break;
+                            }
                         }
                         columns.Append(" " + type);
                         if (unique != null)
