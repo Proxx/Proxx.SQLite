@@ -77,6 +77,17 @@ namespace Proxx.SQLite
             set { replace = value; }
         }
         private string replace;
+
+        [Parameter(
+            Mandatory = false
+        )]
+        [Alias("Bool")]
+        public SwitchParameter Boolean
+        {
+            get { return _Bool; }
+            set { _Bool = value; }
+        }
+        private bool _Bool;
         #endregion
 
         protected override void BeginProcessing()
@@ -163,11 +174,13 @@ namespace Proxx.SQLite
             if (HasError)
             {
                 command.Transaction.Rollback();
+                if (_Bool) { WriteObject(false); }
             }
             else
             {
                 if (ShouldProcess("Transaction", "Commit"))
                 {
+                    if (_Bool) { WriteObject(true); }
                     command.Transaction.Commit();
                 }
             }
