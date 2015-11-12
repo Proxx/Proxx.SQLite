@@ -10,7 +10,6 @@ namespace Proxx.SQLite
         private SQLiteConnection connection;
         private DataTable inputobject;
         private string name;
-        private bool add;
 
         [Parameter(Mandatory = true)]
         public SQLiteConnection Connection
