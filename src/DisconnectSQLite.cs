@@ -10,7 +10,6 @@ namespace Proxx.SQLite
         private SQLiteConnection connection;
         private string location;
         private bool dispose;
-        private bool passthru;
 
         [Parameter(
             Mandatory = true,
