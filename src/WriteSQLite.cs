@@ -34,7 +34,7 @@ namespace Proxx.SQLite
 
         [Parameter(
             Mandatory = false,
-            HelpMessage = "Returns Boolean value on succes or failure",
+            HelpMessage = "Returns Boolean value on succes or failure"
         )]
         [Alias("Bool")]
         public SwitchParameter Boolean
