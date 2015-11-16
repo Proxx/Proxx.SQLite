@@ -38,6 +38,13 @@ namespace Proxx.SQLite
         }
         private SQLiteConnection connection;
 
+        [Parameter(Mandatory = false)]
+        public SQLiteTransaction Transaction
+        {
+            get { return _Transaction; }
+            set { _Transaction = value; }
+        }
+        private SQLiteTransaction _Transaction; 
         [Parameter(
             Mandatory = false,
             ValueFromPipeline = true
@@ -98,7 +105,14 @@ namespace Proxx.SQLite
             command = Connection.CreateCommand();
             if (ShouldProcess("Transaction", "Begin"))
             {
-                command.Transaction = connection.BeginTransaction();
+                if (_Transaction != null)
+                {
+                    command.Transaction = _Transaction;
+                }
+                else
+                {
+                    command.Transaction = connection.BeginTransaction();
+                }
             }
             Exclude = new string[] { "RowError", "RowState", "Table", "ItemArray", "HasErrors" };
             insertnames = new StringBuilder();
@@ -182,7 +196,10 @@ namespace Proxx.SQLite
                 if (ShouldProcess("Transaction", "Commit"))
                 {
                     if (_Bool) { WriteObject(true); }
-                    command.Transaction.Commit();
+                    if (_Transaction == null)
+                    {
+                        command.Transaction.Commit();
+                    }
                 }
             }
         }

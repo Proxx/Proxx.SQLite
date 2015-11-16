@@ -20,6 +20,13 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        [Parameter(Mandatory = false)]
+        public SQLiteTransaction Transaction
+        {
+            get { return _Transaction; }
+            set { _Transaction = value; }
+        }
+        private SQLiteTransaction _Transaction;
         [Parameter(
             Mandatory = false,
             HelpMessage = "SQLite Query",
@@ -54,6 +61,7 @@ namespace Proxx.SQLite
                 try
                 {
                     command = new SQLiteCommand(qry, connection);
+                    if (_Transaction != null) { command.Transaction = _Transaction; }
                     command.ExecuteNonQuery();
                 }
                 catch(Exception ex)

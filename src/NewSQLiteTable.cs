@@ -35,6 +35,13 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        [Parameter(Mandatory = false)]
+        public SQLiteTransaction Transaction
+        {
+            get { return _Transaction; }
+            set { _Transaction = value; }
+        }
+        private SQLiteTransaction _Transaction;
         [Parameter(
             Mandatory = false,
             ValueFromPipeline = true
@@ -87,6 +94,10 @@ namespace Proxx.SQLite
                 columns = new StringBuilder();
                 param = new ArrayList();
                 x = "";
+                if (_Transaction != null)
+                {
+                    command.Transaction = _Transaction;
+                }
             }
             else
             {

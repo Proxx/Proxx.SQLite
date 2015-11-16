@@ -18,7 +18,13 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
-
+        [Parameter(Mandatory = false)]
+        public SQLiteTransaction Transaction
+        {
+            get { return _Transaction; }
+            set { _Transaction = value; }
+        }
+        private SQLiteTransaction _Transaction;
         [Parameter(Mandatory = true, ValueFromPipeline = true)]
         public DataTable InputObject
         {
@@ -40,8 +46,14 @@ namespace Proxx.SQLite
 
             if (ShouldProcess("Database", "BeginTransaction"))
             {
-                SQLiteTransaction transaction = connection.BeginTransaction();
-                command.Transaction = transaction;
+                if (_Transaction == null)
+                {
+                    command.Transaction = connection.BeginTransaction();
+                }
+                else
+                {
+                    command.Transaction = _Transaction;
+                }
             }
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             SQLiteCommandBuilder commandbuilder = new SQLiteCommandBuilder(adapter);
@@ -62,7 +74,10 @@ namespace Proxx.SQLite
             {
                 if (command.Transaction != null)
                 {
-                    command.Transaction.Commit();
+                    if (_Transaction == null)
+                    {
+                        command.Transaction.Commit();
+                    }
                 }
             }
             inputobject.AcceptChanges();
