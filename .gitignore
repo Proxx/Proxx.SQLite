@@ -3,3 +3,4 @@ src/bin/Debug/
 src/.vs/
 *.pdb
 *.db
+src/obj/Release/
