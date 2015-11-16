@@ -12,42 +12,39 @@ namespace Proxx.SQLite
     {
         #region OutSQLite variables
 
-        private SQLiteCommand command;
-        private string[] Exclude;
-        private bool first;
-        private bool HasError;
-        private StringBuilder insertnames;
-        private StringBuilder insertparam;
-        private ArrayList param;
-        private string paramname;
-        private StringBuilder updateparam;
-        private string query;
-        private string x;
+        private SQLiteCommand _Command;
+        private string[] _Exclude;
+        private bool _First;
+        private bool _HasError;
+        private StringBuilder _InsertNames;
+        private StringBuilder _InsertParam;
+        private ArrayList _Param;
+        private string _ParamName;
+        private StringBuilder _UpdateParam;
+        private string _Query;
+        private string _x;
 
         #endregion
 
         #region OutSQLite Parameters
-        [Parameter(
-            Mandatory = true
-        )]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
         {
-            get { return connection; }
-            set { connection = value; }
+            get { return _Connection; }
+            set { _Connection = value; }
         }
-        private SQLiteConnection connection;
-        [Parameter(Mandatory = false)]
+        private SQLiteConnection _Connection;
+
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
             get { return _Transaction; }
             set { _Transaction = value; }
         }
         private SQLiteTransaction _Transaction; 
-        [Parameter(
-            Mandatory = false,
-            ValueFromPipeline = true
-        )]
+        [Parameter(Mandatory = true, ValueFromPipeline = true, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = true, ValueFromPipeline = true, ParameterSetName = "Transaction")]
         public PSObject[] InputObject
         {
             get { return inputobject; }
@@ -55,9 +52,8 @@ namespace Proxx.SQLite
         }
         private PSObject[] inputobject;
 
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public string Name
         {
             get { return name; }
@@ -65,9 +61,8 @@ namespace Proxx.SQLite
         }
         private string name;
 
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public string Update
         {
             get { return update; }
@@ -75,9 +70,8 @@ namespace Proxx.SQLite
         }
         private string update;
 
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public string Replace
         {
             get { return replace; }
@@ -85,9 +79,8 @@ namespace Proxx.SQLite
         }
         private string replace;
 
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         [Alias("Bool")]
         public SwitchParameter Boolean
         {
@@ -100,26 +93,28 @@ namespace Proxx.SQLite
         protected override void BeginProcessing()
         {
             base.BeginProcessing();
-            HasError = false;
-            command = Connection.CreateCommand();
+            _HasError = false;
+            
             if (ShouldProcess("Transaction", "Begin"))
             {
                 if (_Transaction != null)
                 {
-                    command.Transaction = _Transaction;
+                    _Command = _Transaction.Connection.CreateCommand();
+                    _Command.Transaction = _Transaction;
                 }
                 else
                 {
-                    command.Transaction = connection.BeginTransaction();
+                    _Command = _Connection.CreateCommand();
+                    _Command.Transaction = _Connection.BeginTransaction();
                 }
             }
-            Exclude = new string[] { "RowError", "RowState", "Table", "ItemArray", "HasErrors" };
-            insertnames = new StringBuilder();
-            insertparam = new StringBuilder();
-            updateparam = new StringBuilder();
-            param = new ArrayList();
-            first = true;
-            x = "";
+            _Exclude = new string[] { "RowError", "RowState", "Table", "ItemArray", "HasErrors" };
+            _InsertNames = new StringBuilder();
+            _InsertParam = new StringBuilder();
+            _UpdateParam = new StringBuilder();
+            _Param = new ArrayList();
+            _First = true;
+            _x = "";
         }
         protected override void ProcessRecord()
         {
@@ -127,22 +122,22 @@ namespace Proxx.SQLite
             {
                 foreach (PSPropertyInfo property in item.Properties)
                 {
-                    if (Exclude.Contains(property.Name.ToString())) { continue; }
-                    paramname = "@__" + property.Name.ToString().Replace(".", "");
-                    if (first)
+                    if (_Exclude.Contains(property.Name.ToString())) { continue; }
+                    _ParamName = "@__" + property.Name.ToString().Replace(".", "");
+                    if (_First)
                     {
-                        if (param.Contains(paramname))
+                        if (_Param.Contains(_ParamName))
                         {
-                            command.Transaction.Rollback();
+                            _Command.Transaction.Rollback();
                             ThrowTerminatingError(new ErrorRecord(new Exception("Duplicated Parameter: " + property.Name.ToString()), "", ErrorCategory.SyntaxError, ""));
                         }
-                        param.Add(paramname);
-                        command.Parameters.Add(new SQLiteParameter(paramname));
+                        _Param.Add(_ParamName);
+                        _Command.Parameters.Add(new SQLiteParameter(_ParamName));
 
-                        insertnames.Append(x + " '" + property.Name.ToString() + "'");
-                        insertparam.Append(x + " " + paramname);
-                        updateparam.Append(x + " '" + property.Name.ToString() + "' = " + paramname);
-                        x = ",";
+                        _InsertNames.Append(_x + " '" + property.Name.ToString() + "'");
+                        _InsertParam.Append(_x + " " + _ParamName);
+                        _UpdateParam.Append(_x + " '" + property.Name.ToString() + "' = " + _ParamName);
+                        _x = ",";
                     }
                     object value = "";
                     if (property.Value == null || string.IsNullOrWhiteSpace(property.Value.ToString())) { value = DBNull.Value; }
@@ -161,23 +156,23 @@ namespace Proxx.SQLite
                                 break;
                         }
                     }
-                    command.Parameters[paramname].Value = value;
+                    _Command.Parameters[_ParamName].Value = value;
                 }
-                if (first)
+                if (_First)
                 {
-                    if (Replace != null) { query = "INSERT OR REPLACE INTO '" + name + "' (" + insertnames.ToString() + ") VALUES (" + insertparam.ToString() + ");"; }
-                    else { query = "INSERT OR IGNORE INTO '" + name + "' (" + insertnames.ToString() + ") VALUES (" + insertparam.ToString() + ");"; }
-                    if (Update != null) { query += "UPDATE '" + name + "' SET " + updateparam.ToString() + " Where " + update + "=@__" + update.Replace(".", "") + ";"; }
-                    command.CommandText = query;
-                    WriteVerbose(query);
-                    command.Prepare();
+                    if (Replace != null) { _Query = "INSERT OR REPLACE INTO '" + name + "' (" + _InsertNames.ToString() + ") VALUES (" + _InsertParam.ToString() + ");"; }
+                    else { _Query = "INSERT OR IGNORE INTO '" + name + "' (" + _InsertNames.ToString() + ") VALUES (" + _InsertParam.ToString() + ");"; }
+                    if (Update != null) { _Query += "UPDATE '" + name + "' SET " + _UpdateParam.ToString() + " Where " + update + "=@__" + update.Replace(".", "") + ";"; }
+                    _Command.CommandText = _Query;
+                    WriteVerbose(_Query);
+                    _Command.Prepare();
                 }
-                first = false;
-                try { command.ExecuteNonQuery(); }
+                _First = false;
+                try { _Command.ExecuteNonQuery(); }
                 catch (Exception ec)
                 {
                     WriteError((new ErrorRecord(ec, "", ErrorCategory.SyntaxError, "")));
-                    HasError = true;
+                    _HasError = true;
                     break;
                 }
             }
@@ -185,9 +180,9 @@ namespace Proxx.SQLite
         protected override void EndProcessing()
         {
             base.EndProcessing();
-            if (HasError)
+            if (_HasError)
             {
-                command.Transaction.Rollback();
+                if (_Transaction == null) { _Command.Transaction.Rollback(); }
                 if (_Bool) { WriteObject(false); }
             }
             else
@@ -197,7 +192,7 @@ namespace Proxx.SQLite
                     if (_Bool) { WriteObject(true); }
                     if (_Transaction == null)
                     {
-                        command.Transaction.Commit();
+                        _Command.Transaction.Commit();
                     }
                 }
             }

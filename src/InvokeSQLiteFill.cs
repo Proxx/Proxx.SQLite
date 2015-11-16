@@ -8,31 +8,34 @@ namespace Proxx.SQLite
     public class InvokeSQLiteFill : PSCmdlet
     {
         private SQLiteConnection connection;
+        private SQLiteCommand _command;
         private DataTable inputobject;
         private string name;
-
-        [Parameter(Mandatory = true)]
+        
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
         {
             get { return connection; }
             set { connection = value; }
         }
-        [Parameter(Mandatory = false)]
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
             get { return _Transaction; }
             set { _Transaction = value; }
         }
         private SQLiteTransaction _Transaction;
-        [Parameter(Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, ValueFromPipeline = true, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = true, ValueFromPipeline = true, ParameterSetName = "Transaction")]
         public DataTable InputObject
         {
             get { return inputobject; }
             set { inputobject = value; }
         }
 
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public string Name
         {
             get { return name; }
@@ -41,21 +44,24 @@ namespace Proxx.SQLite
         protected override void ProcessRecord()
         {
             base.BeginProcessing();
-            SQLiteCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM '" + name + "' LIMIT 1";
+            //SQLiteCommand command = connection.CreateCommand();
+            
 
             if (ShouldProcess("Database", "BeginTransaction"))
             {
                 if (_Transaction == null)
                 {
-                    command.Transaction = connection.BeginTransaction();
+                    _command = connection.CreateCommand();
+                    _command.Transaction = connection.BeginTransaction();
                 }
                 else
                 {
-                    command.Transaction = _Transaction;
+                    _command = _Transaction.Connection.CreateCommand();
+                    _command.Transaction = _Transaction;
                 }
             }
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            _command.CommandText = "SELECT * FROM '" + name + "' LIMIT 1";
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(_command);
             SQLiteCommandBuilder commandbuilder = new SQLiteCommandBuilder(adapter);
             adapter.InsertCommand = (SQLiteCommand)commandbuilder.GetInsertCommand().Clone();
             commandbuilder.DataAdapter = null;
@@ -72,11 +78,11 @@ namespace Proxx.SQLite
             }
             if (ShouldProcess("Transaction", "Commit"))
             {
-                if (command.Transaction != null)
+                if (_command.Transaction != null)
                 {
                     if (_Transaction == null)
                     {
-                        command.Transaction.Commit();
+                        _command.Transaction.Commit();
                     }
                 }
             }

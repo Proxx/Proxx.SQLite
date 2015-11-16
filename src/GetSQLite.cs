@@ -8,47 +8,72 @@ namespace Proxx.SQLite
     [Cmdlet(VerbsCommon.Get, "SQLite", SupportsShouldProcess = true)]
     public class GetSQLite : PSCmdlet
     {
-
-        private SQLiteConnection connection;
-        private string query;
-        private bool returnobject;
-
-        [Parameter(
-            Mandatory = true
-        )]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
         {
-            get { return connection; }
-            set { connection = value; }
+            get { return _Connection; }
+            set { _Connection = value; }
         }
+        private SQLiteConnection _Connection;
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
+        public SQLiteTransaction Transaction
+        {
+            get { return _Transaction; }
+            set { _Transaction = value; }
+        }
+        private SQLiteTransaction _Transaction;
         [Parameter(
-            Mandatory = false,
+            Mandatory = true,
             HelpMessage = "SQLite select Query",
-            ValueFromPipeline = true
+            ValueFromPipeline = true,
+            ParameterSetName = "Connection"
+        )]
+        [Parameter(
+            Mandatory = true,
+            HelpMessage = "SQLite select Query",
+            ValueFromPipeline = true,
+            ParameterSetName = "Transaction"
         )]
         public string Query
         {
-            get { return query; }
-            set { query = value; }
+            get { return _Query; }
+            set { _Query = value; }
         }
+        private string _Query;
         [Parameter(
             Mandatory = false,
-            HelpMessage = "return object instead of DataTable"
+            HelpMessage = "return object instead of DataTable",
+            ParameterSetName = "Connection"
+        )]
+        [Parameter(
+            Mandatory = false,
+            HelpMessage = "return object instead of DataTable",
+            ParameterSetName = "Transaction"
         )]
         public SwitchParameter ReturnObject
         {
-            get { return returnobject; }
-            set { returnobject = value; }
+            get { return _ReturnObject; }
+            set { _ReturnObject = value; }
         }
+        private bool _ReturnObject;
 
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            if (connection.State.ToString().Equals("Open"))
+            SQLiteConnection conn = null;
+            if (_Transaction == null)
             {
-                SQLiteCommand command = new SQLiteCommand(query, connection);
-                if (returnobject)
+                conn = _Connection;
+            }
+            else
+            {
+                conn = _Transaction.Connection;
+            }
+            if (conn.State.ToString().Equals("Open"))
+            {
+                SQLiteCommand command = new SQLiteCommand(_Query, conn);
+                if (_ReturnObject)
                 {
                     SQLiteDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)

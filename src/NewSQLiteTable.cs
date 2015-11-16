@@ -26,56 +26,50 @@ namespace Proxx.SQLite
         #endregion
 
         #region NewSQLiteTable Parameters
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
         {
             get { return connection; }
             set { connection = value; }
         }
-        [Parameter(Mandatory = false)]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
             get { return _Transaction; }
             set { _Transaction = value; }
         }
         private SQLiteTransaction _Transaction;
-        [Parameter(
-            Mandatory = false,
-            ValueFromPipeline = true
-        )]
+        [Parameter(Mandatory = false, ValueFromPipeline = true, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ValueFromPipeline = true, ParameterSetName = "Transaction")]
         public PSObject[] InputObject
         {
             get { return inputobject; }
             set { inputobject = value; }
         }
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public string Unique
         {
             get { return unique; }
             set { unique = value; }
         }
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public SwitchParameter Text
         {
             get { return text; }
             set { text = value; }
         }
-        [Parameter(
-            Mandatory = false
-        )]
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public SwitchParameter PassThru
         {
             get { return passthru; }
@@ -88,13 +82,18 @@ namespace Proxx.SQLite
             if (connection.State.ToString().Equals("Open"))
             {
                 first = true;
-                command = Connection.CreateCommand();
+                
                 columns = new StringBuilder();
                 param = new ArrayList();
                 x = "";
                 if (_Transaction != null)
                 {
+                    command = _Transaction.Connection.CreateCommand();
                     command.Transaction = _Transaction;
+                }
+                else
+                {
+                    command = connection.CreateCommand();
                 }
             }
             else
