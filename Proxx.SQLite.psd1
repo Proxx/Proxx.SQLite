@@ -12,7 +12,7 @@
 RootModule = './Proxx.SQLite.dll'
 
 # Version number of this module.
-ModuleVersion = '1.1.0.1'
+ModuleVersion = '1.1.0.8'
 
 # ID used to uniquely identify this module
 GUID = '85d43a6e-3c51-4cdc-be4f-7d959a2952d8'
