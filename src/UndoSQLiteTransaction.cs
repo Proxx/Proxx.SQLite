@@ -6,22 +6,18 @@ namespace Proxx.SQLite
     [Cmdlet(VerbsCommon.Undo, "SQLiteTransaction", SupportsShouldProcess = true)]
     public class UndoSQLiteTransaction : PSCmdlet
     {
-        private SQLiteTransaction transaction;
-
-        [Parameter(
-            Mandatory = true,
-            Position = 0
-        )]
+        [Parameter(Mandatory = true, Position = 0)]
         public SQLiteTransaction Transaction
         {
-            get { return transaction; }
-            set { transaction = value; }
+            get { return _Transaction; }
+            set { _Transaction = value; }
         }
+        private SQLiteTransaction _Transaction;
 
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            transaction.Rollback();
+            _Transaction.Rollback();
         }
     }
 }
