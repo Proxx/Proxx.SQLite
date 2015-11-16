@@ -11,9 +11,7 @@ namespace Proxx.SQLite
         private SQLiteConnection connection;
         private string[] query;
 
-        [Parameter(
-            Mandatory = true
-        )]
+        [Parameter(Mandatory = true)]
         [Alias("Conn")]
         public SQLiteConnection Connection
         {
@@ -28,7 +26,7 @@ namespace Proxx.SQLite
         }
         private SQLiteTransaction _Transaction;
         [Parameter(
-            Mandatory = false,
+            Mandatory = true,
             HelpMessage = "SQLite Query",
             ValueFromPipeline = true,
             ValueFromPipelineByPropertyName = true

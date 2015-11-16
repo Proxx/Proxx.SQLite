@@ -37,7 +37,6 @@ namespace Proxx.SQLite
             set { connection = value; }
         }
         private SQLiteConnection connection;
-
         [Parameter(Mandatory = false)]
         public SQLiteTransaction Transaction
         {
