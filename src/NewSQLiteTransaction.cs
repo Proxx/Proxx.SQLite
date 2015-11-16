@@ -12,6 +12,7 @@ namespace Proxx.SQLite
             Mandatory = true,
             Position = 0
         )]
+        [Alias("Conn")]
         public SQLiteConnection Connection
         {
             get { return connection; }

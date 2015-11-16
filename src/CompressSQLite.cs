@@ -19,6 +19,7 @@ namespace Proxx.SQLite
             HelpMessage = "Path to SQLite database",
             ValueFromPipeline = true
         )]
+        [Alias("Conn")]
         public SQLiteConnection Connection
         {
             get { return connection; }

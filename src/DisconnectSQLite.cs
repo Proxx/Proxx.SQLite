@@ -16,7 +16,7 @@ namespace Proxx.SQLite
             Position = 0,
             ValueFromPipeline = true
         )]
-        //[ValidateNotNullOrEmpty]
+        [Alias("Conn")]
         public SQLiteConnection Connection
         {
             get { return connection; }
