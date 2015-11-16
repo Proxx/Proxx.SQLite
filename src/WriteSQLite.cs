@@ -7,18 +7,18 @@ namespace Proxx.SQLite
     [Cmdlet(VerbsCommunications.Write, "SQLite", SupportsShouldProcess = true)]
     public class WriteSQLite : PSCmdlet
     {
-        private SQLiteCommand command;
-        private SQLiteConnection connection;
-        private string[] query;
+        private SQLiteCommand _Command;
+        private SQLiteConnection _Connection;
+        private string[] _Query;
 
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
         {
-            get { return connection; }
-            set { connection = value; }
+            get { return _Connection; }
+            set { _Connection = value; }
         }
-        [Parameter(Mandatory = false)]
+        [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
             get { return _Transaction; }
@@ -29,18 +29,31 @@ namespace Proxx.SQLite
             Mandatory = true,
             HelpMessage = "SQLite Query",
             ValueFromPipeline = true,
-            ValueFromPipelineByPropertyName = true
-
+            ValueFromPipelineByPropertyName = true,
+            ParameterSetName = "Connection"
+        )]
+        [Parameter(
+            Mandatory = true,
+            HelpMessage = "SQLite Query",
+            ValueFromPipeline = true,
+            ValueFromPipelineByPropertyName = true,
+            ParameterSetName = "Transaction"
         )]
         public string[] Query
         {
-            get { return query; }
-            set { query = value; }
+            get { return _Query; }
+            set { _Query = value; }
         }
 
         [Parameter(
             Mandatory = false,
-            HelpMessage = "Returns Boolean value on succes or failure"
+            HelpMessage = "Returns Boolean value on succes or failure",
+            ParameterSetName = "Connection"
+        )]
+        [Parameter(
+            Mandatory = false,
+            HelpMessage = "Returns Boolean value on succes or failure",
+            ParameterSetName = "Transaction"
         )]
         [Alias("Bool")]
         public SwitchParameter Boolean
@@ -53,14 +66,21 @@ namespace Proxx.SQLite
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            foreach (string qry in query)
+            foreach (string qry in _Query)
             {
                 bool _Result = true;
                 try
                 {
-                    command = new SQLiteCommand(qry, connection);
-                    if (_Transaction != null) { command.Transaction = _Transaction; }
-                    command.ExecuteNonQuery();
+                    _Command = new SQLiteCommand(qry, _Connection);
+                    if (_Transaction == null) {
+                        _Command = new SQLiteCommand(qry, _Connection);
+                    }
+                    else
+                    {
+                        _Command = new SQLiteCommand(qry, _Transaction.Connection);
+                        _Command.Transaction = _Transaction;
+                    }
+                    _Command.ExecuteNonQuery();
                 }
                 catch(Exception ex)
                 {
