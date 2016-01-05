@@ -1,5 +1,5 @@
 #Unstable image has WMF 5.0 installed (contains: PowershellGet)
-os: unstable
+os: Previous Unstable
 
 environment:
   access_token:
