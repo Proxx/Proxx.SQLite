@@ -11,7 +11,8 @@ namespace Proxx.SQLite
 
         [Parameter(
             Mandatory = true,
-            Position = 0
+            Position = 0,
+            ValueFromPipeline = true
         )]
         public SQLiteTransaction Transaction
         {
