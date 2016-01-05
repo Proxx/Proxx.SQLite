@@ -15,8 +15,8 @@ install:
 build_script:
   - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Build.ps1'))
   
-test_script:
-  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Tests.ps1'))
+#test_script:
+#  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Tests.ps1'))
 
   
 deploy: off
