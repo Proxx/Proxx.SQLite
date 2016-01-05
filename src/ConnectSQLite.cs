@@ -37,6 +37,9 @@ namespace Proxx.SQLite
             get { return path; }
             set { path = value; }
         }
+        /// <summary>
+        /// <para type="description">Create an In-Memory SQLite database.</para>
+        /// </summary>
         [Parameter(
             Position = 0,
             Mandatory = true,
@@ -48,6 +51,9 @@ namespace Proxx.SQLite
             get { return memory; }
             set { memory = value; }
         }
+        /// <summary>
+        /// <para type="description">Opens the connection to the database.</para>
+        /// </summary>
         [Parameter(Mandatory = false, HelpMessage = "Opens Connection")]
         public SwitchParameter Open
         {

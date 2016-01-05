@@ -36,6 +36,9 @@ namespace Proxx.SQLite
         #endregion
 
         #region NewSQLiteTable Parameters
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
@@ -43,6 +46,9 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        /// <summary>
+        /// <para type="description">Specifies an Transaction object.</para>
+        /// </summary>
         [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
@@ -57,6 +63,9 @@ namespace Proxx.SQLite
             get { return inputobject; }
             set { inputobject = value; }
         }
+        /// <summary>
+        /// <para type="description">Specifies the SQLite table name.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public string Name
@@ -64,6 +73,9 @@ namespace Proxx.SQLite
             get { return name; }
             set { name = value; }
         }
+        /// <summary>
+        /// <para type="description">Specifies the columns in the table that are UNIQUE.</para>
+        /// </summary>
         [Parameter(Mandatory = false, ParameterSetName = "Connection")]
         [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public string Unique
@@ -71,8 +83,12 @@ namespace Proxx.SQLite
             get { return unique; }
             set { unique = value; }
         }
+        /// <summary>
+        /// <para type="description">This wil set all columns to type TEXT.</para>
+        /// </summary>
         [Parameter(Mandatory = false, ParameterSetName = "Connection")]
         [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
+        [Alias("AllText")]
         public SwitchParameter Text
         {
             get { return text; }
@@ -85,6 +101,9 @@ namespace Proxx.SQLite
             get { return passthru; }
             set { passthru = value; }
         }
+        /// <summary>
+        /// <para type="description">Creates a temporary table</para>
+        /// </summary>
         [Parameter(Mandatory = false, ParameterSetName = "Connection")]
         [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public SwitchParameter Temp

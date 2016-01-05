@@ -51,7 +51,9 @@ namespace Proxx.SQLite
             get { return inputobject; }
             set { inputobject = value; }
         }
-
+        /// <summary>
+        /// <para type="description">Specifies the name of the SQLite table.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public string Name

@@ -36,6 +36,9 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        /// <summary>
+        /// <para type="description">Disposes the SQLite connection object.</para>
+        /// </summary>
         [Parameter(
             Mandatory = false,
             HelpMessage = "Dispose connection"

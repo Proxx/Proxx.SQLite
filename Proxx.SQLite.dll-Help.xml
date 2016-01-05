@@ -26,6 +26,9 @@
         <!-- Parameter: PassThru -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>PassThru will output the objects to pipeline.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -63,6 +66,9 @@
       <!-- Parameter: PassThru -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>PassThru will output the objects to pipeline.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -121,6 +127,9 @@
         <!-- Parameter: Open -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Open</maml:name>
+          <maml:description>
+            <maml:para>Opens the connection to the database.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -135,6 +144,9 @@
         <!-- Parameter: Memory -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="0">
           <maml:name>Memory</maml:name>
+          <maml:description>
+            <maml:para>Create an In-Memory SQLite database.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -145,6 +157,9 @@
         <!-- Parameter: Open -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Open</maml:name>
+          <maml:description>
+            <maml:para>Opens the connection to the database.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -170,6 +185,9 @@
       <!-- Parameter: Memory -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="0">
         <maml:name>Memory</maml:name>
+        <maml:description>
+          <maml:para>Create an In-Memory SQLite database.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -180,6 +198,9 @@
       <!-- Parameter: Open -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>Open</maml:name>
+        <maml:description>
+          <maml:para>Opens the connection to the database.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -228,6 +249,9 @@
         <!-- Parameter: Dispose -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Dispose</maml:name>
+          <maml:description>
+            <maml:para>Disposes the SQLite connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -265,6 +289,9 @@
       <!-- Parameter: Dispose -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>Dispose</maml:name>
+        <maml:description>
+          <maml:para>Disposes the SQLite connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -323,6 +350,9 @@
         <!-- Parameter: Query -->
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="named">
           <maml:name>Query</maml:name>
+          <maml:description>
+            <maml:para>Specify the query in string format.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -332,6 +362,9 @@
         <!-- Parameter: ReturnObject -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>ReturnObject</maml:name>
+          <maml:description>
+            <maml:para>Ouputs an Object instead of a DataTable</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -358,6 +391,9 @@
         <!-- Parameter: Query -->
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="named">
           <maml:name>Query</maml:name>
+          <maml:description>
+            <maml:para>Specify the query in string format.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -367,6 +403,9 @@
         <!-- Parameter: ReturnObject -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>ReturnObject</maml:name>
+          <maml:description>
+            <maml:para>Ouputs an Object instead of a DataTable</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -416,6 +455,9 @@
       <!-- Parameter: Query -->
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="named">
         <maml:name>Query</maml:name>
+        <maml:description>
+          <maml:para>Specify the query in string format.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">string</command:parameterValue>
         <dev:type>
           <maml:name>System.String</maml:name>
@@ -425,6 +467,9 @@
       <!-- Parameter: ReturnObject -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>ReturnObject</maml:name>
+        <maml:description>
+          <maml:para>Ouputs an Object instead of a DataTable</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -439,6 +484,9 @@
           <maml:name>System.String</maml:name>
           <maml:uri />
         </dev:type>
+        <maml:description>
+          <maml:para>Specify the query in string format.</maml:para>
+        </maml:description>
       </command:inputType>
     </command:inputTypes>
     <command:returnValues />
@@ -658,6 +706,9 @@
         <!-- Parameter: Name -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of the SQLite table.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -692,6 +743,9 @@
         <!-- Parameter: Name -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of the SQLite table.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -749,6 +803,9 @@
       <!-- Parameter: Name -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
         <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of the SQLite table.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">string</command:parameterValue>
         <dev:type>
           <maml:name>System.String</maml:name>
@@ -791,6 +848,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -809,6 +869,9 @@
         <!-- Parameter: Name -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SQLite table name.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -818,6 +881,9 @@
         <!-- Parameter: Unique -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Unique</maml:name>
+          <maml:description>
+            <maml:para>Specifies the columns in the table that are UNIQUE.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -825,8 +891,11 @@
           </dev:type>
         </command:parameter>
         <!-- Parameter: Text -->
-        <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
+        <command:parameter required="false" globbing="false" pipelineInput="false" position="named" aliases="AllText">
           <maml:name>Text</maml:name>
+          <maml:description>
+            <maml:para>This wil set all columns to type TEXT.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -847,6 +916,9 @@
         <!-- Parameter: Temp -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Temp</maml:name>
+          <maml:description>
+            <maml:para>Creates a temporary table</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -861,6 +933,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -879,6 +954,9 @@
         <!-- Parameter: Name -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SQLite table name.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -888,6 +966,9 @@
         <!-- Parameter: Unique -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Unique</maml:name>
+          <maml:description>
+            <maml:para>Specifies the columns in the table that are UNIQUE.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -895,8 +976,11 @@
           </dev:type>
         </command:parameter>
         <!-- Parameter: Text -->
-        <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
+        <command:parameter required="false" globbing="false" pipelineInput="false" position="named" aliases="AllText">
           <maml:name>Text</maml:name>
+          <maml:description>
+            <maml:para>This wil set all columns to type TEXT.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -917,6 +1001,9 @@
         <!-- Parameter: Temp -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
           <maml:name>Temp</maml:name>
+          <maml:description>
+            <maml:para>Creates a temporary table</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SwitchParameter</command:parameterValue>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -930,6 +1017,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -938,18 +1028,22 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: Transaction -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -968,6 +1062,9 @@
       <!-- Parameter: Name -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
         <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SQLite table name.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">string</command:parameterValue>
         <dev:type>
           <maml:name>System.String</maml:name>
@@ -977,6 +1074,9 @@
       <!-- Parameter: Unique -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>Unique</maml:name>
+        <maml:description>
+          <maml:para>Specifies the columns in the table that are UNIQUE.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">string</command:parameterValue>
         <dev:type>
           <maml:name>System.String</maml:name>
@@ -984,8 +1084,24 @@
         </dev:type>
       </command:parameter>
       <!-- Parameter: Text -->
-      <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
+      <command:parameter required="false" globbing="false" pipelineInput="false" position="named" aliases="AllText">
         <maml:name>Text</maml:name>
+        <maml:description>
+          <maml:para>This wil set all columns to type TEXT.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" globbing="false" pipelineInput="false" position="named" aliases="AllText">
+        <maml:name>AllText</maml:name>
+        <maml:description>
+          <maml:para>This wil set all columns to type TEXT.</maml:para>
+          <maml:para>This is an alias of the Text parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -1006,6 +1122,9 @@
       <!-- Parameter: Temp -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
         <maml:name>Temp</maml:name>
+        <maml:description>
+          <maml:para>Creates a temporary table</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>System.Management.Automation.SwitchParameter</maml:name>

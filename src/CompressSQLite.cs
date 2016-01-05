@@ -39,6 +39,9 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        /// <summary>
+        /// <para type="description">PassThru will output the objects to pipeline.</para>
+        /// </summary>
         [Parameter(
             Mandatory = false,
             HelpMessage = "Passthru object"

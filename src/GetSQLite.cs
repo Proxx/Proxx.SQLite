@@ -41,6 +41,9 @@ namespace Proxx.SQLite
             set { _Transaction = value; }
         }
         private SQLiteTransaction _Transaction;
+        /// <summary>
+        /// <para type="description">Specify the query in string format.</para>
+        /// </summary>
         [Parameter(
             Mandatory = true,
             HelpMessage = "SQLite select Query",
@@ -59,6 +62,9 @@ namespace Proxx.SQLite
             set { _Query = value; }
         }
         private string _Query;
+        /// <summary>
+        /// <para type="description">Ouputs an Object instead of a DataTable</para>
+        /// </summary>
         [Parameter(
             Mandatory = false,
             HelpMessage = "return object instead of DataTable",

@@ -77,7 +77,7 @@ namespace Proxx.SQLite
             set { name = value; }
         }
         private string name;
-
+        
         [Parameter(Mandatory = false, ParameterSetName = "Connection")]
         [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public string Update
