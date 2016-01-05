@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Proxx.SQLite</name>
+    </assembly>
+    <members>
+        <member name="T:Proxx.SQLite.CompleteSQLiteTransaction">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.CompressSQLite">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.ConnectSQLite">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.DisconnectSQLite">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.GetSQLite">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.InvokeSQLiteFill">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.NewSQLiteTable">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+        </member>
+        <member name="T:Proxx.SQLite.NewSQLiteTransaction">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.OutSQLiteTable">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.UndoSQLiteTransaction">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+        <member name="T:Proxx.SQLite.WriteSQLite">
+            <list type="alertSet">
+              <item>
+                <term>Proxx.SQLite</term>
+                <description>
+                Author: Marco van G. (Proxx)
+                Website: www.Proxx.nl
+                </description>
+              </item>
+            </list>
+            <summary>
+              <para type="link">Proxx.nl</para>
+            </summary>
+        </member>
+    </members>
+</doc>
