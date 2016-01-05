@@ -23,6 +23,7 @@ namespace Proxx.SQLite
         private string x;
         private SwitchParameter passthru;
         private string[] Exclude;
+        private SwitchParameter _temp;
         #endregion
 
         #region NewSQLiteTable Parameters
@@ -74,6 +75,13 @@ namespace Proxx.SQLite
         {
             get { return passthru; }
             set { passthru = value; }
+        }
+        [Parameter(Mandatory = false, ParameterSetName = "Connection")]
+        [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
+        public SwitchParameter Temp
+        {
+            get { return _temp; }
+            set { _temp = value; }
         }
         #endregion
 
@@ -154,7 +162,14 @@ namespace Proxx.SQLite
                             }
                         }
                     }
-                    command.CommandText = string.Format("CREATE TABLE '{0}' ({1});", name, columns.ToString());
+                    if (_temp)
+                    {
+                        command.CommandText = string.Format("CREATE TEMP TABLE '{0}' ({1});", name, columns.ToString());
+                    }
+                    else
+                    {
+                        command.CommandText = string.Format("CREATE TABLE '{0}' ({1});", name, columns.ToString());
+                    }
                     WriteDebug("Executing Query: " + command.CommandText);
                     try { command.ExecuteNonQuery(); } catch (Exception ec) { WriteError((new ErrorRecord(ec, "", ErrorCategory.SyntaxError, ""))); }
                     first = false;
