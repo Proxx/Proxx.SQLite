@@ -23,7 +23,10 @@ namespace Proxx.SQLite
         private SQLiteCommand _command;
         private DataTable inputobject;
         private string name;
-        
+
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
@@ -31,6 +34,9 @@ namespace Proxx.SQLite
             get { return connection; }
             set { connection = value; }
         }
+        /// <summary>
+        /// <para type="description">Specifies an Transaction object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
@@ -56,8 +62,7 @@ namespace Proxx.SQLite
         protected override void ProcessRecord()
         {
             base.BeginProcessing();
-            //SQLiteCommand command = connection.CreateCommand();
-            
+ 
 
             if (ShouldProcess("Database", "BeginTransaction"))
             {

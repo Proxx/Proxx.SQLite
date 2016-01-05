@@ -24,7 +24,9 @@ namespace Proxx.SQLite
         private string path;
         private bool memory;
         private bool open;
-
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(
             Position = 0,
             ParameterSetName = "File",

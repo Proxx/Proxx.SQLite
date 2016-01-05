@@ -18,7 +18,9 @@ namespace Proxx.SQLite
     [Cmdlet(VerbsCommon.Undo, "SQLiteTransaction", SupportsShouldProcess = true)]
     public class UndoSQLiteTransaction : PSCmdlet
     {
-
+        /// <summary>
+        /// <para type="description">Specifies an Transaction object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
         public SQLiteTransaction Transaction
         {

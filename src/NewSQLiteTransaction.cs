@@ -19,7 +19,9 @@ namespace Proxx.SQLite
     public class NewSQLiteTransaction : PSCmdlet
     {
         private SQLiteConnection connection;
-
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(
             Mandatory = true,
             Position = 0

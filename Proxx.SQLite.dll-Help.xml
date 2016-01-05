@@ -14,6 +14,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -36,6 +39,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -44,14 +50,15 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: PassThru -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
@@ -70,6 +77,9 @@
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
       </command:inputType>
     </command:inputTypes>
     <command:returnValues />
@@ -99,6 +109,9 @@
         <!-- Parameter: Path -->
         <command:parameter required="false" globbing="false" pipelineInput="false" position="0">
           <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">string</command:parameterValue>
           <dev:type>
             <maml:name>System.String</maml:name>
@@ -145,6 +158,9 @@
       <!-- Parameter: Path -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="0">
         <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">string</command:parameterValue>
         <dev:type>
           <maml:name>System.String</maml:name>
@@ -200,6 +216,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -222,6 +241,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -230,14 +252,15 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: Dispose -->
       <command:parameter required="false" globbing="false" pipelineInput="false" position="named">
@@ -256,6 +279,9 @@
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
       </command:inputType>
     </command:inputTypes>
     <command:returnValues />
@@ -285,6 +311,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -317,6 +346,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -348,6 +380,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -356,18 +391,22 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: Transaction -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -429,6 +468,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -461,6 +503,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -492,6 +537,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -500,18 +548,22 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: Transaction -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -585,6 +637,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -616,6 +671,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -646,6 +704,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -654,18 +715,22 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: Transaction -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -979,6 +1044,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -1038,6 +1106,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -1096,6 +1167,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -1104,18 +1178,22 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
       <!-- Parameter: Transaction -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="named">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -1216,6 +1294,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -1228,6 +1309,9 @@
       <!-- Parameter: Transaction -->
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -1241,6 +1325,9 @@
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
           <maml:uri />
         </dev:type>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
       </command:inputType>
     </command:inputTypes>
     <command:returnValues />
@@ -1270,6 +1357,9 @@
         <!-- Parameter: Connection -->
         <command:parameter required="true" globbing="false" pipelineInput="false" position="0" aliases="Conn">
           <maml:name>Connection</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Connection object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -1282,6 +1372,9 @@
       <!-- Parameter: Connection -->
       <command:parameter required="true" globbing="false" pipelineInput="false" position="0" aliases="Conn">
         <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
@@ -1290,14 +1383,15 @@
       </command:parameter>
       <command:parameter required="true" globbing="false" pipelineInput="false" position="0" aliases="Conn">
         <maml:name>Conn</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Connection object.</maml:para>
+          <maml:para>This is an alias of the Connection parameter.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteConnection</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteConnection</maml:name>
           <maml:uri />
         </dev:type>
-        <maml:description>
-          <maml:para>This is an alias of the Connection parameter.</maml:para>
-        </maml:description>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
@@ -1328,6 +1422,9 @@
         <!-- Parameter: Transaction -->
         <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0">
           <maml:name>Transaction</maml:name>
+          <maml:description>
+            <maml:para>Specifies an Transaction object.</maml:para>
+          </maml:description>
           <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
           <dev:type>
             <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -1340,6 +1437,9 @@
       <!-- Parameter: Transaction -->
       <command:parameter required="true" globbing="false" pipelineInput="true (ByValue)" position="0">
         <maml:name>Transaction</maml:name>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
         <command:parameterValue required="true">SQLiteTransaction</command:parameterValue>
         <dev:type>
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
@@ -1353,6 +1453,9 @@
           <maml:name>System.Data.SQLite.SQLiteTransaction</maml:name>
           <maml:uri />
         </dev:type>
+        <maml:description>
+          <maml:para>Specifies an Transaction object.</maml:para>
+        </maml:description>
       </command:inputType>
     </command:inputTypes>
     <command:returnValues />

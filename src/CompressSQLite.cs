@@ -24,7 +24,9 @@ namespace Proxx.SQLite
         private string location;
         private bool passthru;
 
-
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(
             Mandatory = true,
             Position = 0,

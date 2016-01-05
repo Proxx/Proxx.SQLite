@@ -20,6 +20,9 @@ namespace Proxx.SQLite
     [Cmdlet(VerbsCommon.Get, "SQLite", SupportsShouldProcess = true)]
     public class GetSQLite : PSCmdlet
     {
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
@@ -28,6 +31,9 @@ namespace Proxx.SQLite
             set { _Connection = value; }
         }
         private SQLiteConnection _Connection;
+        /// <summary>
+        /// <para type="description">Specifies an Transaction object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {

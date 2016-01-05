@@ -20,12 +20,15 @@ namespace Proxx.SQLite
     public class CompleteSQLiteTransaction : PSCmdlet
     {
         private SQLiteTransaction transaction;
-
+        /// <summary>
+        /// <para type="description">Specifies an Transaction object.</para>
+        /// </summary>
         [Parameter(
             Mandatory = true,
             Position = 0,
             ValueFromPipeline = true
         )]
+
         public SQLiteTransaction Transaction
         {
             get { return transaction; }

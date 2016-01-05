@@ -22,7 +22,9 @@ namespace Proxx.SQLite
         private SQLiteConnection connection;
         private string location;
         private bool dispose;
-
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(
             Mandatory = true,
             Position = 0,

@@ -22,7 +22,9 @@ namespace Proxx.SQLite
         private SQLiteCommand _Command;
         private SQLiteConnection _Connection;
         private string[] _Query;
-
+        /// <summary>
+        /// <para type="description">Specifies the Connection object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Connection")]
         [Alias("Conn")]
         public SQLiteConnection Connection
@@ -30,6 +32,9 @@ namespace Proxx.SQLite
             get { return _Connection; }
             set { _Connection = value; }
         }
+        /// <summary>
+        /// <para type="description">Specifies an Transaction object.</para>
+        /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = "Transaction")]
         public SQLiteTransaction Transaction
         {
