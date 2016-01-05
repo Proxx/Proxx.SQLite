@@ -7,6 +7,15 @@ using System.Collections;
 
 namespace Proxx.SQLite
 {
+    /// <list type="alertSet">
+    ///   <item>
+    ///     <term>Proxx.SQLite</term>
+    ///     <description>
+    ///     Author: Marco van G. (Proxx)
+    ///     Website: www.Proxx.nl
+    ///     </description>
+    ///   </item>
+    /// </list>
     [Cmdlet(VerbsCommon.New, "SQLiteTable", SupportsShouldProcess = true)]
     public class NewSQLiteTable : PSCmdlet
     {

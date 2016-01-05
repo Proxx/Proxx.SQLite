@@ -3,6 +3,18 @@ using System.Data.SQLite;
 
 namespace Proxx.SQLite
 {
+    /// <list type="alertSet">
+    ///   <item>
+    ///     <term>Proxx.SQLite</term>
+    ///     <description>
+    ///     Author: Marco van G. (Proxx)
+    ///     Website: www.Proxx.nl
+    ///     </description>
+    ///   </item>
+    /// </list>
+    /// <summary>
+    ///   <para type="link">Proxx.nl</para>
+    /// </summary>
     [Cmdlet(VerbsCommon.New, "SQLiteTransaction", SupportsShouldProcess = true)]
     public class NewSQLiteTransaction : PSCmdlet
     {
