@@ -118,7 +118,7 @@ namespace Proxx.SQLite
             if (connection.State.ToString().Equals("Open"))
             {
                 first = true;
-                
+
                 columns = new StringBuilder();
                 param = new ArrayList();
                 x = "";
@@ -138,7 +138,10 @@ namespace Proxx.SQLite
             }
             Exclude = new string[] { "RowError", "RowState", "Table", "ItemArray", "HasErrors" };
         }
-
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+        }
         protected override void ProcessRecord()
         {
             foreach (PSObject row in inputobject)
@@ -211,7 +214,6 @@ namespace Proxx.SQLite
                     }
                     else
                     {
-                        
                         break;
                     }
                 }

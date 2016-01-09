@@ -77,7 +77,7 @@ namespace Proxx.SQLite
             set { name = value; }
         }
         private string name;
-        
+
         [Parameter(Mandatory = false, ParameterSetName = "Connection")]
         [Parameter(Mandatory = false, ParameterSetName = "Transaction")]
         public string Update
@@ -132,6 +132,10 @@ namespace Proxx.SQLite
             _Param = new ArrayList();
             _First = true;
             _x = "";
+        }
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
         }
         protected override void ProcessRecord()
         {
