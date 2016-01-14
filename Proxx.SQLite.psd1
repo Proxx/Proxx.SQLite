@@ -12,7 +12,7 @@
 RootModule = './Proxx.SQLite.dll'
 
 # Version number of this module.
-ModuleVersion = '1.1.0.8'
+ModuleVersion = '1.1.0.40'
 
 # ID used to uniquely identify this module
 GUID = '85d43a6e-3c51-4cdc-be4f-7d959a2952d8'
@@ -24,7 +24,7 @@ Author = 'Marco van Gaal'
 CompanyName = 'Proxx.nl'
 
 # Copyright statement for this module
-Copyright = '(c) 2015 Proxx.nl. All rights reserved.'
+Copyright = '(c) 2016 Proxx.nl. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'SQLite CmdLets'

@@ -65,8 +65,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File $(ProjectDir)Tools\PreBuild.ps1</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)Tools\XmlDoc2CmdletDoc.exe "$(TargetPath)"</PostBuildEvent>
