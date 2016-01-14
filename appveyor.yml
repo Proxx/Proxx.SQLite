@@ -22,5 +22,4 @@ build_script:
 deploy: off
   
 on_success:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - ps: Publish-Module -Name $($ENV:APPVEYOR_PROJECT_NAME) -Repository PSGallery -NuGetApiKey $($env:access_token) -Confirm:$false
