@@ -4,3 +4,5 @@ src/.vs/
 *.pdb
 *.db
 src/obj/Release/
+x64/SQLite.Interop.dll
+x86/SQLite.Interop.dll
