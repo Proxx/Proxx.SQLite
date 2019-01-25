@@ -1,4 +1,4 @@
-﻿Function Stop-SQLiteTransaction {
+﻿Function Complete-SQLiteTransaction {
 <#
 .Synopsis
    End SQLite Transaction.
@@ -17,16 +17,8 @@
     Param(
         [ALias("trns")]
         [Parameter(ValueFromPipeline=$true, mandatory=$true)]
-        [System.Data.SQLite.SQLiteTransaction] $Transaction,
-        [Parameter(ParameterSetName="Commit", Mandatory=$true)]
-        [Switch] $Commit,
-        [Parameter(ParameterSetName="Rollback", Mandatory=$true)]
-        [Switch] $Rollback
+        [System.Data.SQLite.SQLiteTransaction] $Transaction
     )
     
-    if ($Commit) {
-        Return $Transaction.Commit()
-    } elseif ($Rollback) {
-        Return $Transaction.Rollback()
-    }
+    Return $Transaction.Commit()
 }
