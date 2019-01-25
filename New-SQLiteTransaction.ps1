@@ -24,5 +24,5 @@
         [System.Data.SQLite.SQLiteConnection] $Connection
     )
 
-    Return $Conn.BeginTransaction()
+    Return $Connection.BeginTransaction()
 }
