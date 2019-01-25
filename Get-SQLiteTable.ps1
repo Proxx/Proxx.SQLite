@@ -32,6 +32,6 @@
         [System.Data.SQLite.SQLiteConnection] $Connection
     )
 
-    Write-Output -InputObject (Read-SQLite -Connection $Connection -Query "SELECT Type, Name, Tbl_Name, Rootpage, SQL FROM sqlite_master WHERE type='table'" -ReturnObject)
+    Write-Output -InputObject (Get-SQLite -Connection $Connection -Query "SELECT Type, Name, Tbl_Name, Rootpage, SQL FROM sqlite_master WHERE type='table'")
 }
 
