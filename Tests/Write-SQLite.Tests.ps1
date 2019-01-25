@@ -15,6 +15,12 @@
     it "should throw when connection is not SQLiteConnection type" {
         { Write-SQLite -connection "test" -Query "" } | Should Throw
     }
+    it "Should allow parameters to be used in querys" {
+        { Write-SQLite -Connection $conn -Query 'CREATE TABLE `?` (x TEXT, y, z);' -Parameters @{ 'a'= 'tablename' } } | Should not throw
+    }
+    it "Should allow named parameters to be used in querys" {
+        { Write-SQLite -Connection $conn -Query 'CREATE TABLE `@tablename` (x TEXT, y, z);' -Parameters @{ 'tablename'= 'nameOftheTable' } } | Should not throw
+    }
     Context "Closed connection" {
         BeforeAll {
             $conn = Connect-SQLite -Memory
