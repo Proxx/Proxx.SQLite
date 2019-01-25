@@ -59,7 +59,7 @@
 		$First = $true
        [Boolean] $Exists = $False
         $State = $True
-		if ((Read-SQLite -Connection $Connection -Query "select name from sqlite_master WHERE type = 'table' AND name = '$name'").Name) { [Boolean] $Exists = $true }
+		if ((Get-SQLite -Connection $Connection -Query "select name from sqlite_master WHERE type = 'table' AND name = '$name'").Name) { [Boolean] $Exists = $true }
 
 	}
 	Process {
