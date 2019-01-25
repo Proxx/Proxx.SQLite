@@ -55,7 +55,7 @@
 	}
 
 
-	#$Result = $true
+	$Result = $true
 
 	try { [Void] $command.ExecuteNonQuery() }
 	Catch {	$Result = $false; Write-Error -Message $_.Exception.Message }
