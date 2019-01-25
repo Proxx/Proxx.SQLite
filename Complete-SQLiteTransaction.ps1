@@ -3,11 +3,11 @@
 .Synopsis
    End SQLite Transaction.
 .DESCRIPTION
-   invoked method Commit or Rollback on the transaction object.
+   invoked Commit on the transaction object.
 .EXAMPLE
-   $Transaction | Stop-SQLiteTransaction -Rollback
+   $Transaction | Complete-SQLiteTransaction
 .EXAMPLE
-   Stop-SQLiteTransaction -Transaction $Transaction -Commit
+   Complete-SQLiteTransaction -Transaction $Transaction
 .NOTES
    using the method 'Commit()' on the transaction object is shorter
    this function is to make the module as complete as possible.
