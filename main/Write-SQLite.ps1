@@ -15,7 +15,8 @@
 
     .EXAMPLE
         PS C:\> Write-SQLite [-Connection] <SQLiteConnection> [-Query] <String>
-	    Runs the query on database then rollsback the transaction.
+		Runs the query on database then rollsback the transaction.
+ 
 			
 	.NOTES
 	    Author: Proxx
@@ -34,8 +35,9 @@
 		[Parameter(Mandatory=$true)]
 			[System.Data.SQLite.SQLiteConnection]$Connection,
 		[Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-			[String]$Query,
-			[Hashtable] $Parameters
+			[String] $Query,
+			[Hashtable] $Parameters,
+			[Switch] $Bool
 	)
 	
 
@@ -60,6 +62,11 @@
 		
 	$command.Dispose() 
 	
-	#Return $Result
+	if ($Bool)
+	{
+		Return $Result
+	}
+	else { return }
+	
 }
 
