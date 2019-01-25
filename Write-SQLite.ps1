@@ -14,10 +14,8 @@
 	    Runs the query on database and return $true or $false
 
     .EXAMPLE
-        PS C:\> Write-SQLite [-Connection] <SQLiteConnection> [-Query] <String> -Whatif
+        PS C:\> Write-SQLite [-Connection] <SQLiteConnection> [-Query] <String>
 	    Runs the query on database then rollsback the transaction.
-
-	    WARNING: Whatif only works with "INSERT, UPDATE, and DELETE"!!!!!!
 			
 	.NOTES
 	    Author: Proxx
@@ -33,26 +31,35 @@
     [OutputType([System.Boolean])]
 	Param(
 		[cmdletbinding()]
-		[Parameter(Mandatory=$true)][System.Data.SQLite.SQLiteConnection]$Connection,
-		[Parameter(Mandatory=$true, ValueFromPipeline=$true)][String]$Query,
-		[Parameter(Mandatory=$false, ValueFromPipeline=$false)][Switch]$Whatif
+		[Parameter(Mandatory=$true)]
+			[System.Data.SQLite.SQLiteConnection]$Connection,
+		[Parameter(Mandatory=$true, ValueFromPipeline=$true)]
+			[String]$Query,
+			[Hashtable] $Parameters
 	)
 	
 
 	if ($Connection.State -ne "Open") { Throw "Connection has state: " + $Connection.State + ". the connection must be Open in order to proceed" }
-	if ($Whatif) {
-		if ($Query -like "*DROP TABLE*" -OR $Query -like "*CREATE TABLE*") { Throw "Whatif parameter cannot be used with DROP or CREATE statements." }
-		$Transaction = $Connection.BeginTransaction() 
-	}
+
 	$command = $Connection.CreateCommand()
 	$command.CommandText = $Query
-	$Result = $true
-	$Transaction = $Connection.BeginTransaction()
+
+	if ($Parameters)
+	{
+		ForEach($Param in $Parameters.GetEnumerator())
+		{
+			[Void] $command.Parameters.AddWithValue($Param.Key, $Param.Value)
+		}
+	}
+
+
+	#$Result = $true
+
 	try { [Void] $command.ExecuteNonQuery() }
 	Catch {	$Result = $false; Write-Error -Message $_.Exception.Message }
-	Finally { 
-		if ($Whatif) { $Transaction.Rollback() } Else { $Transaction.Commit() }
-		$command.Dispose() 
-	}
-	Return $Result
+		
+	$command.Dispose() 
+	
+	#Return $Result
 }
+
