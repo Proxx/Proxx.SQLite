@@ -41,7 +41,7 @@
             [Switch] $ReturnDataTable,
         [Parameter(ParameterSetName="Table", Mandatory=$True, ValueFromPipeline=$True)]
         [Parameter(ParameterSetName="Object", Mandatory=$True, ValueFromPipeline=$True)]
-            [Hashtable] $Parameters,
+            [Hashtable] $Parameters
 
     )
 	# Throw when there is no connection to database
