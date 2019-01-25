@@ -7,9 +7,10 @@
 # Website: www.proxx.nl
 #
 Resolve-Path -Path $PSScriptRoot\*.ps1 | ForEach-Object { . $_.ProviderPath }
-Export-ModuleMember -Function Compress-SQLite, Connect-SQLite, Convert-SQLiteType, Disconnect-SQLite, Get-SQLiteTables, Invoke-SQLiteFill, Invoke-SQLiteTable, New-SQLiteTable, Out-SQLiteTable, Read-SQLite, Start-SQLiteTransaction, Stop-SQLiteTransaction, Write-SQLite
+Export-ModuleMember -Function Compress-SQLite, Connect-SQLite, Convert-SQLiteType, Disconnect-SQLite, Get-SQLiteTables, Invoke-SQLiteFill, Invoke-SQLiteTable, New-SQLiteTable, Out-SQLiteTable, Read-SQLite, New-SQLiteTransaction, Complete-SQLiteTransaction, Undo-SQLiteTransaction, Write-SQLite
 
 Set-Alias -Name Vacuum -Value Compress-SQLite
-Set-Alias -Name BeginTrans -Value Start-SQLiteTransaction
-Set-Alias -Name EndTrans -Value Stop-SQLiteTransaction
+Set-Alias -Name BeginTransaction -Value New-SQLiteTransaction
+Set-Alias -Name RollbackTransaction -Value Undo-SQLiteTransaction
+Set-Alias -Name CommitTransaction -Value Complete-SQLiteTransaction
 
