@@ -28,9 +28,10 @@ Cmdlet          Write-SQLite                                       1.1.1.1    Pr
 ### changelog:
  - cloned function Read-SQLite to Get-SQLite
  - added support for parameter to Get-SQLite
+ - add support for sqlite paramters to Write-SQLite
 
 
 ### todo:
- - add support for sqlite paramters to Write-SQLite
- - add parameter Transaction to Write-SQLite
  - see if Write-SQLite could support SQLiteDataAdapter INSERTS,UPDATES,DELETES 
+ - more useage of verbose messages.
+ 
