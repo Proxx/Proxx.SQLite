@@ -13,4 +13,6 @@ Set-Alias -Name Vacuum -Value Compress-SQLite
 Set-Alias -Name BeginTransaction -Value New-SQLiteTransaction
 Set-Alias -Name RollbackTransaction -Value Undo-SQLiteTransaction
 Set-Alias -Name CommitTransaction -Value Complete-SQLiteTransaction
+Set-Alias -Name Read-SQLite -Value Get-SQLite -Description 'Read-SQLite is a legacy function, please use Get-SQLite instead.'
+
 
