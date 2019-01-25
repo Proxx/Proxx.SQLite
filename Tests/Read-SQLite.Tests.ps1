@@ -20,8 +20,8 @@
     It "Returns PSObject type" {
         (Get-SQLite -Connection $conn -Query "SELECT x FROM A LIMIT 3;") -is [System.Object] | Should Be $true
     }
-    It "PSObject should contain 20 rows" {
-        (Read-SQLite -Connection $conn -Query "SELECT x FROM A LIMIT 20;").Count | Should Be 20
+    It "Should contain 20 rows" {
+        (Get-SQLite -Connection $conn -Query "SELECT x FROM A LIMIT 20;").Count | Should Be 20
     }
     it "Should throw when connection is not SQLiteConnection type" {
         { Read-SQLite -connection "test" -Query "" } | Should Throw
