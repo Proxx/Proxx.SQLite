@@ -30,8 +30,14 @@ Cmdlet          Write-SQLite                                       1.1.1.1    Pr
  - added support for parameter to Get-SQLite
  - add support for sqlite paramters to Write-SQLite
  - updated aliasses
+ - change ReturnObject to ReturnDataTable
+ - added comments to Get-SQLite
 
 ### todo:
  - see if Write-SQLite could support SQLiteDataAdapter INSERTS,UPDATES,DELETES 
  - more useage of verbose messages.
+
+ - add function Update-SQLiteTable.ps1
+    - use SQLiteDataAdapter to upload datatable to sqlite
+
 
