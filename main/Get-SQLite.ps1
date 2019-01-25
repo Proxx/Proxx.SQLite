@@ -39,8 +39,8 @@
             [String]$Query,
         [Parameter(ParameterSetName="Table", Mandatory=$True, ValueFromPipeline=$True)]
             [Switch] $ReturnDataTable,
-        [Parameter(ParameterSetName="Table", Mandatory=$True, ValueFromPipeline=$True)]
-        [Parameter(ParameterSetName="Object", Mandatory=$True, ValueFromPipeline=$True)]
+        [Parameter(ParameterSetName="Table", Mandatory=$false, ValueFromPipeline=$True)]
+        [Parameter(ParameterSetName="Object", Mandatory=$false, ValueFromPipeline=$True)]
             [Hashtable] $Parameters
 
     )
