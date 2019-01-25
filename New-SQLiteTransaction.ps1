@@ -1,4 +1,4 @@
-﻿Function Start-SQLiteTransaction {
+﻿Function New-SQLiteTransaction {
 <#
 .Synopsis
    Begins SQLite Transaction.
