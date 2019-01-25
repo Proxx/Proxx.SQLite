@@ -16,7 +16,7 @@ Describe "New-SQLiteTable" {
         { $Data | New-SQLiteTable -Connection $conn -Name Test } | Should Not Throw
     }
     it "returns True on success" {
-        $Data | New-SQLiteTable -Connection $conn -Name Test | Should Be $true
+        $Data | New-SQLiteTable -Connection $conn -Name Test | Select -Last 1 | Should Be $true
     }
     Context "PassThru" {
         BeforeAll {
