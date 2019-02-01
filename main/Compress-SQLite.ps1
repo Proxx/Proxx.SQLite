@@ -49,7 +49,7 @@
     )
 
     $Location = $Connection.ConnectionString.Replace("Data Source = ","")
-    if ($Location -ne ":memory:") {
+    if ($Location.ToLower() -ne ":memory:") {
 	    $Pre = (Get-ChildItem -Path $Location).Length
 	    $command = $Connection.CreateCommand()
 	    $command.CommandText = "VACUUM;"
