@@ -1,5 +1,9 @@
 #Unstable image has WMF 5.0 installed (contains: PowershellGet)
-os: Previous Unstable
+image: Visual Studio 2017
+
+version: 1.1.0.{build}
+pull_requests:
+  do_not_increment_build_number: true
 
 environment:
   access_token:
@@ -9,15 +13,12 @@ branches:
   only:
     - master
 
-install:
-  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Install.ps1'))
+build: off
 
-build_script:
-  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Build.ps1'))
-  
+test_script:
+- ps: 
 #test_script:
 #  - ps: Invoke-Expression -Command ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/Proxx/ac48a312a2e370dd14c0/raw/AppVeyor-Tests.ps1'))
-
   
 deploy: off
   
