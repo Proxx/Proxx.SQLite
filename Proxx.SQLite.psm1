@@ -14,7 +14,7 @@ Resolve-Path -Path $PSScriptRoot\main\*.ps1 | ForEach-Object { . $_.ProviderPath
 Resolve-Path -Path $PSScriptRoot\tools\*.ps1 | ForEach-Object { . $_.ProviderPath }
 
 # Export members
-Export-ModuleMember -Function Compress-SQLite, Connect-SQLite, Convert-SQLiteType, Disconnect-SQLite, Get-SQLiteTables, Invoke-SQLiteFill, Invoke-SQLiteTable, New-SQLiteTable, Out-SQLiteTable, Read-SQLite, New-SQLiteTransaction, Complete-SQLiteTransaction, Undo-SQLiteTransaction, Write-SQLite
+Export-ModuleMember -Function Compress-SQLite, Connect-SQLite, Convert-SQLiteType, Disconnect-SQLite, Get-SQLiteTables, Invoke-SQLiteFill, Invoke-SQLiteTable, New-SQLiteTable, Out-SQLiteTable, Get-SQLite, New-SQLiteTransaction, Complete-SQLiteTransaction, Undo-SQLiteTransaction, Write-SQLite
 
 
 # Create alias names for functions
