@@ -46,7 +46,7 @@
 		)][Alias('conn')][System.Data.SQLite.SQLiteConnection] $Connection = $null,
 		[Parameter(
 			Mandatory=$True,
-			ValueFromPipeline=$False,
+			ValueFromPipeline=$True,
 			HelpMessage='you need to specify a [System.Data.DataTable] to import.'
 		)][Alias('Table')][System.Data.DataTable] $InputObject = $null
 		,[String] $Name = $InputObject.TableName
