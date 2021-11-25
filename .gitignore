@@ -1,4 +1,3 @@
-x64/SQLite.Interop.dll
-x86/SQLite.Interop.dll
 *.sqlite
 *.xml
+*.dll
